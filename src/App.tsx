@@ -1,8 +1,9 @@
+import { HeroSection } from './sections/HeroSection'
+
 function App() {
   return (
     <main>
-      <h1>Desafio Técnico</h1>
-      <p>Projeto pronto para começar.</p>
+      <HeroSection />
     </main>
   )
 }
