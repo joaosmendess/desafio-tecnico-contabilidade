@@ -30,12 +30,10 @@ export function HeroSection() {
         <ContentLayer>
           <HeroGrid>
             <Copy>
-              <Title>Quanto custa a contabilidade online em 2026?</Title>
-              <Subtitle>
-                Descubra os preços médios do mercado e veja como a
-                contabilidade.com oferece planos acessíveis, abertura grátis e
-                suporte completo para o seu CNPJ.
-              </Subtitle>
+            <Title>Quanto custa a contabilidade online em 2026?</Title>
+            <Subtitle>
+              Descubra os preços médios do mercado e veja como a contabilidade.com oferece planos acessíveis, abertura grátis e suporte completo para o seu CNPJ.
+            </Subtitle>
               <Actions>
                 <Button>Planos e Preços</Button>
                 <Button $variant="outline">Falar com Especialista</Button>

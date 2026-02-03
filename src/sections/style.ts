@@ -9,44 +9,71 @@ export const HeroWrapper = styled(Section)`
   &::before {
     content: '';
     position: absolute;
-    width: 520px;
-    height: 520px;
-    border-radius: 50%;
+    width: 670px;
+    height: 500px;
+    border-radius: 40%;
     background: ${({ theme }) => theme.colors.background};
     top: -260px;
-    left: -120px;
-    opacity: 0.7;
-    filter: blur(14px);
+    opacity: 0.6;
+    filter: blur(20px);
+  }
+
+  @media (max-width: 959px) {
+    &::before {
+      left: 50%;
+      transform: translateX(-50%);
+    }
   }
 `
 
 export const HeroGrid = styled.div`
   display: grid;
   gap: ${({ theme }) => theme.spacing.xxl};
-  align-items: center;
+  align-items: start;
 
   @media (min-width: 960px) {
     grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
     gap: 56px;
   }
+  
+  @media (max-width: 959px) {
+    text-align: center;
+  }
 `
 
 export const Copy = styled.div`
   max-width: 520px;
+
+  @media (max-width: 959px) {
+    margin: 0 auto;
+  }
 `
 
 export const Title = styled.h1`
   margin: 0 0 ${({ theme }) => theme.spacing.md};
-  font-size: clamp(28px, 4vw, 36px);
+  font-size: clamp(28px, 3.4vw, 36px);
   font-weight: ${({ theme }) => theme.font.weight.semibold};
-  line-height: 1.2;
+  line-height: 1.15;
+  max-width: 360px;
+
+  @media (max-width: 959px) {
+    margin-left: auto;
+    margin-right: auto;
+  }
 `
 
 export const Subtitle = styled.p`
   margin: 0 0 ${({ theme }) => theme.spacing.lg};
   color: ${({ theme }) => theme.colors.textMuted};
   font-size: ${({ theme }) => theme.font.size.md};
-  line-height: 1.6;
+  line-height: 1.55;
+  max-width: 340px;
+  white-space: normal;
+
+  @media (max-width: 959px) {
+    margin-left: auto;
+    margin-right: auto;
+  }
 `
 
 export const Actions = styled.div`
@@ -54,6 +81,11 @@ export const Actions = styled.div`
   flex-wrap: wrap;
   gap: ${({ theme }) => theme.spacing.md};
   margin-bottom: ${({ theme }) => theme.spacing.sm};
+
+  @media (max-width: 959px) {
+    flex-direction: column;
+    align-items: stretch;
+  }
 `
 
 export const Meta = styled.p`
@@ -61,6 +93,10 @@ export const Meta = styled.p`
   font-size: ${({ theme }) => theme.font.size.sm};
   color: ${({ theme }) => theme.colors.textMuted};
   font-family: ${({ theme }) => theme.font.familyAlt};
+
+  @media (max-width: 959px) {
+    text-align: center;
+  }
 `
 
 export const ContentLayer = styled.div`
@@ -75,6 +111,11 @@ export const MediaCard = styled.div`
   padding: 0;
   width: min(560px, 100%);
   justify-self: end;
+
+  @media (max-width: 959px) {
+    width: 100%;
+    justify-self: center;
+  }
 `
 
 export const MediaFrame = styled.div`
