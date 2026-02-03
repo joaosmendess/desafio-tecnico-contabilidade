@@ -10,31 +10,31 @@ export const StyledButton = styled.button<StyledButtonProps>`
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: ${({ theme }) => theme.spacing.sm};
+  gap: var(--space-sm);
   padding: 10px 22px;
-  border-radius: ${({ theme }) => theme.radius.pill};
+  border-radius: var(--radius-pill);
   border: 1px solid transparent;
-  font-weight: ${({ theme }) => theme.font.weight.medium};
-  font-size: ${({ theme }) => theme.font.size.sm};
+  font-weight: var(--font-weight-medium);
+  font-size: var(--font-size-sm);
   cursor: pointer;
   transition: transform 0.2s ease, background 0.2s ease, color 0.2s ease,
     border-color 0.2s ease;
 
-  ${({ theme, $variant }) =>
+  ${({ $variant }: StyledButtonProps) =>
     $variant === 'primary'
       ? css`
-          background: ${theme.colors.primary};
-          color: ${theme.colors.surface};
+          background: var(--color-primary);
+          color: var(--color-surface);
 
           &:hover {
-            background: ${theme.colors.primaryHover};
+            background: var(--color-primary-hover);
             transform: translateY(-1px);
           }
         `
       : css`
-          background: ${theme.colors.surface};
-          color: ${theme.colors.primary};
-          border-color: ${theme.colors.primary};
+          background: var(--color-surface);
+          color: var(--color-primary);
+          border-color: var(--color-primary);
 
           &:hover {
             background: rgba(43, 122, 223, 0.08);

@@ -3,7 +3,7 @@ import { Section } from '../components/Section'
 
 export const HeroWrapper = styled(Section)`
   position: relative;
-  background: ${({ theme }) => theme.colors.surface};
+  background: var(--color-surface);
   overflow: hidden;
 
   &::before {
@@ -12,7 +12,7 @@ export const HeroWrapper = styled(Section)`
     width: 670px;
     height: 500px;
     border-radius: 40%;
-    background: ${({ theme }) => theme.colors.background};
+    background: var(--color-bg);
     top: -260px;
     opacity: 0.6;
     filter: blur(20px);
@@ -28,7 +28,7 @@ export const HeroWrapper = styled(Section)`
 
 export const HeroGrid = styled.div`
   display: grid;
-  gap: ${({ theme }) => theme.spacing.xxl};
+  gap: var(--space-2xl);
   align-items: start;
 
   @media (min-width: 960px) {
@@ -50,11 +50,12 @@ export const Copy = styled.div`
 `
 
 export const Title = styled.h1`
-  margin: 0 0 ${({ theme }) => theme.spacing.md};
-  font-size: clamp(28px, 3.4vw, 36px);
-  font-weight: ${({ theme }) => theme.font.weight.semibold};
+  margin: 0 0 var(--space-md);
+  font-size: clamp(var(--font-size-xl), 3.4vw, var(--font-size-2xl));
+  font-weight: var(--font-weight-semibold);
   line-height: 1.15;
   max-width: 360px;
+  font-family: var(--font-family);
 
   @media (max-width: 959px) {
     margin-left: auto;
@@ -63,9 +64,9 @@ export const Title = styled.h1`
 `
 
 export const Subtitle = styled.p`
-  margin: 0 0 ${({ theme }) => theme.spacing.lg};
-  color: ${({ theme }) => theme.colors.textMuted};
-  font-size: ${({ theme }) => theme.font.size.md};
+  margin: 0 0 var(--space-lg);
+  color: var(--color-text-muted);
+  font-size: var(--font-size-md);
   line-height: 1.55;
   max-width: 340px;
   white-space: normal;
@@ -79,8 +80,8 @@ export const Subtitle = styled.p`
 export const Actions = styled.div`
   display: flex;
   flex-wrap: wrap;
-  gap: ${({ theme }) => theme.spacing.md};
-  margin-bottom: ${({ theme }) => theme.spacing.sm};
+  gap: var(--space-md);
+  margin-bottom: var(--space-sm);
 
   @media (max-width: 959px) {
     flex-direction: column;
@@ -90,9 +91,9 @@ export const Actions = styled.div`
 
 export const Meta = styled.p`
   margin: 0;
-  font-size: ${({ theme }) => theme.font.size.sm};
-  color: ${({ theme }) => theme.colors.textMuted};
-  font-family: ${({ theme }) => theme.font.familyAlt};
+  font-size: var(--font-size-sm);
+  color: var(--color-text-muted);
+  font-family: var(--font-family-alt);
 
   @media (max-width: 959px) {
     text-align: center;
@@ -107,7 +108,7 @@ export const ContentLayer = styled.div`
 export const MediaCard = styled.div`
   position: relative;
   background: transparent;
-  border-radius: ${({ theme }) => theme.radius.lg};
+  border-radius: var(--radius-lg);
   padding: 0;
   width: min(560px, 100%);
   justify-self: end;
@@ -122,7 +123,7 @@ export const MediaFrame = styled.div`
   position: relative;
   width: 100%;
   aspect-ratio: 4 / 3;
-  border-radius: ${({ theme }) => theme.radius.lg};
+  border-radius: var(--radius-lg);
   overflow: hidden;
 
   img {
@@ -143,7 +144,7 @@ export const PlayButton = styled.button`
   height: 44px;
   border-radius: 50%;
   border: none;
-  background: ${({ theme }) => theme.colors.success};
+  background: var(--color-success);
   display: grid;
   place-items: center;
   cursor: pointer;
