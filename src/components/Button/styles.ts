@@ -1,12 +1,12 @@
 import styled, { css } from 'styled-components'
 
-type Variant = 'primary' | 'outline'
+export type ButtonVariant = 'primary' | 'outline'
 
-interface ButtonProps {
-  $variant?: Variant
+interface StyledButtonProps {
+  $variant: ButtonVariant
 }
 
-export const Button = styled.button<ButtonProps>`
+export const StyledButton = styled.button<StyledButtonProps>`
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -17,10 +17,10 @@ export const Button = styled.button<ButtonProps>`
   font-weight: ${({ theme }) => theme.font.weight.medium};
   font-size: ${({ theme }) => theme.font.size.sm};
   cursor: pointer;
-  transition: transform 0.2s ease, background 0.2s ease,
-    color 0.2s ease, border-color 0.2s ease;
+  transition: transform 0.2s ease, background 0.2s ease, color 0.2s ease,
+    border-color 0.2s ease;
 
-  ${({ theme, $variant = 'primary' }) =>
+  ${({ theme, $variant }) =>
     $variant === 'primary'
       ? css`
           background: ${theme.colors.primary};
@@ -37,13 +37,13 @@ export const Button = styled.button<ButtonProps>`
           border-color: ${theme.colors.primary};
 
           &:hover {
-            background: rgba(47, 111, 237, 0.08);
+            background: rgba(43, 122, 223, 0.08);
             transform: translateY(-1px);
           }
         `};
 
   &:focus-visible {
-    outline: 3px solid rgba(47, 111, 237, 0.35);
+    outline: 3px solid rgba(43, 122, 223, 0.35);
     outline-offset: 2px;
   }
 
