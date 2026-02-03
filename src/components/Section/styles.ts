@@ -1,5 +1,5 @@
 import styled from 'styled-components'
 
-export const Section = styled.section`
+export const SectionRoot = styled.section`
   padding: ${({ theme }) => theme.spacing.xxl} 0;
 `
