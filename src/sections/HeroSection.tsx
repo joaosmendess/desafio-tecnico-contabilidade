@@ -37,8 +37,29 @@ export function HeroSection() {
                 suporte completo para o seu CNPJ.
               </Subtitle>
               <Actions>
-                <Button>Planos e Preços</Button>
-                <Button variant="outline">Falar com Especialista</Button>
+                <Button
+                  onClick={() =>
+                    window.open(
+                      'https://contabilidade.com/checkout/',
+                      '_blank',
+                      'noopener,noreferrer',
+                    )
+                  }
+                >
+                  Planos e Preços
+                </Button>
+                <Button
+                  variant="outline"
+                  onClick={() =>
+                    window.open(
+                      'https://api.whatsapp.com/send/?phone=5511921948925',
+                      '_blank',
+                      'noopener,noreferrer',
+                    )
+                  }
+                >
+                  Falar com Especialista
+                </Button>
               </Actions>
               <Meta>CRC SP-2SP038830/O-1</Meta>
             </Copy>

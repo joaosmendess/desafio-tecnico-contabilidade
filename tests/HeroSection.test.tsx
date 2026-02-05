@@ -15,10 +15,9 @@ describe('HeroSection', () => {
       }),
     ).toBeInTheDocument()
 
-    expect(screen.getByRole('button', { name: /planos e preços/i })).toHaveAttribute(
-      'type',
-      'button',
-    )
+    expect(
+      screen.getByRole('button', { name: /planos e preços/i }),
+    ).toHaveAttribute('type', 'button')
     expect(
       screen.getByRole('button', { name: /falar com especialista/i }),
     ).toHaveAttribute('type', 'button')
@@ -40,4 +39,3 @@ describe('HeroSection', () => {
     expect(screen.queryByRole('dialog')).not.toBeInTheDocument()
   })
 })
-

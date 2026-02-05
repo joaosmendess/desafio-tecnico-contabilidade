@@ -22,4 +22,3 @@ describe('PlansSection', () => {
     expect(image).toHaveAttribute('decoding', 'async')
   })
 })
-
