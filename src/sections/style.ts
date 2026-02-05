@@ -300,4 +300,14 @@ export const CloseButton = styled.button.attrs({ type: 'button' })`
     outline: 3px solid rgba(47, 111, 237, 0.35);
     outline-offset: 2px;
   }
+
+  @media (max-width: 959px) {
+    top: 12px;
+    right: 12px;
+    width: 40px;
+    height: 40px;
+    font-size: 26px;
+    background: rgba(255, 255, 255, 0.95);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
+  }
 `
