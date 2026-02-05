@@ -1,0 +1,17 @@
+# Dependencies
+node_modules
+
+# Build output
+dist
+dist-ssr
+
+# Lockfiles
+package-lock.json
+
+# Static / binary assets
+public
+src/assets
+
+# Misc
+*.log
+DESAFIO_GUIA.md

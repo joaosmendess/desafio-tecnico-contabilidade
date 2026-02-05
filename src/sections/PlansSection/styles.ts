@@ -70,7 +70,9 @@ export const ImageCard = styled.div`
   img {
     opacity: 0;
     transform: scale(1.01);
-    transition: opacity 0.25s ease, transform 0.6s ease;
+    transition:
+      opacity 0.25s ease,
+      transform 0.6s ease;
     will-change: opacity, transform;
   }
 
@@ -163,7 +165,11 @@ export const ListCard = styled.ul`
   }
 `
 
-export const ItemRow = styled.li<{ $bg: string; $grow: number; $index: number }>`
+export const ItemRow = styled.li<{
+  $bg: string
+  $grow: number
+  $index: number
+}>`
   flex: ${({ $grow }) => $grow} 1 0;
   z-index: ${({ $index }) => 20 - $index};
   display: grid;
@@ -176,7 +182,10 @@ export const ItemRow = styled.li<{ $bg: string; $grow: number; $index: number }>
   position: relative;
   border-radius: var(--radius-md);
   box-shadow: 0 8px 18px rgba(27, 31, 35, 0.07);
-  transition: transform 0.18s ease, box-shadow 0.18s ease, filter 0.18s ease;
+  transition:
+    transform 0.18s ease,
+    box-shadow 0.18s ease,
+    filter 0.18s ease;
   will-change: transform;
 
   &:not(:first-child) {

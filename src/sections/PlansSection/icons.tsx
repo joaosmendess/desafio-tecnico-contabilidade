@@ -66,4 +66,3 @@ export function PlanIcon({ kind }: { kind: PlanItem['icon'] }) {
       )
   }
 }
-
