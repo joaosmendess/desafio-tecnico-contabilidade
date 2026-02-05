@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { Button } from '../components/Button'
 import { Container } from '../components/Container'
-import heroThumb from '../assets/image.png'
+import heroThumb from '../assets/images/image.png'
 import {
   Actions,
   CloseButton,

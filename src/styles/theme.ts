@@ -1,6 +1,7 @@
 export const theme = {
   colors: {
     background: '#e0ffde',
+    backgroundAlt: '#F6F6F6',
     surface: '#FFFFFF',
     text: '#1B1F23',
     textMuted: '#1E2124',
@@ -17,6 +18,7 @@ export const theme = {
     lg: '24px',
     xl: '32px',
     xxl: '48px',
+    xxxl: '64px',
   },
   radius: {
     sm: '8px',
