@@ -1,78 +1,57 @@
-# React + TypeScript + Vite
+# Desafio Técnico — Contabilidade.com (Front-end Júnior)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Implementação em React de duas dobras/sections do layout do Figma para o teste de Front-end Júnior, com foco em fidelidade visual, organização do código, componentização e responsividade.
 
-## Formatting
+## Sections implementadas
 
-- `npm run format` - formats files using Prettier
-- `npm run format:check` - checks formatting (useful for CI)
+- **Hero**: headline + CTAs + thumb + modal de vídeo.
+- **Planos e Preços**: imagem + lista de benefícios em cards “colados” (overlap) + CTA.
 
-Currently, two official plugins are available:
+## Rodando o projeto
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### Requisitos
 
-## React Compiler
+- Node.js **v22** (testado com **v22.15.0**)
+- npm
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+### Comandos
 
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+npm install
+npm run dev
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+Outros scripts úteis:
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+- `npm run build` — build de produção
+- `npm run preview` — preview do build
+- `npm run lint` — lint (ESLint)
+- `npm run format` / `npm run format:check` — formatação (Prettier)
+- `npm run test:run` — testes automatizados (Vitest)
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+## Decisões técnicas
+
+- **React + TypeScript + Vite**
+- **styled-components** para estilização (conforme requisito do desafio)
+- Tokens de design em `src/styles/theme.ts` e CSS variables em `src/styles/GlobalStyle.ts`
+- Componentes reutilizáveis em `src/components` (ex.: `Button`, `Container`, `Section`)
+- Sections do layout em `src/sections`
+
+## Decisões fora do Figma (documentadas)
+
+- **Imagem de planos** com `loading="lazy"` e `decoding="async"`, mais `aspect-ratio` + placeholder (shimmer) para evitar “pulo” de layout em conexões lentas.
+- Estados de **hover** aplicados só em dispositivos que suportam hover (`@media (hover: hover)`), e animações respeitando `prefers-reduced-motion`.
+- **Modal de vídeo** com semântica básica (`role="dialog"`, `aria-modal`, `aria-label`) e botão de fechar dedicado.
+
+## Acessibilidade (básico)
+
+- Botões reais (`<button>`) e `type="button"` por padrão.
+- **Foco visível** (`:focus-visible`) nos botões.
+- Imagens informativas com `alt`.
+- Ícones decorativos com `aria-hidden`.
+
+## Extras (opcionais do desafio)
+
+- ESLint + Prettier configurados
+- Testes automatizados com **Vitest + Testing Library**
+  - Observação: `vitest.config.ts` usa `pool: 'vmThreads'` por estabilidade no Windows/Node 22.
