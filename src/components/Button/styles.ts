@@ -17,6 +17,7 @@ export const StyledButton = styled.button<StyledButtonProps>`
   font-weight: var(--font-weight-medium);
   font-size: var(--font-size-sm);
   cursor: pointer;
+  touch-action: manipulation;
   transition: transform 0.2s ease, background 0.2s ease, color 0.2s ease,
     border-color 0.2s ease;
 
@@ -26,9 +27,11 @@ export const StyledButton = styled.button<StyledButtonProps>`
           background: var(--color-primary);
           color: var(--color-surface);
 
-          &:hover {
-            background: var(--color-primary-hover);
-            transform: translateY(-1px);
+          @media (hover: hover) and (pointer: fine) {
+            &:hover {
+              background: var(--color-primary-hover);
+              transform: translateY(-1px);
+            }
           }
         `
       : css`
@@ -36,11 +39,17 @@ export const StyledButton = styled.button<StyledButtonProps>`
           color: var(--color-primary);
           border-color: var(--color-primary);
 
-          &:hover {
-            background: rgba(43, 122, 223, 0.08);
-            transform: translateY(-1px);
+          @media (hover: hover) and (pointer: fine) {
+            &:hover {
+              background: rgba(43, 122, 223, 0.08);
+              transform: translateY(-1px);
+            }
           }
         `};
+
+  &:active {
+    transform: translateY(0);
+  }
 
   &:focus-visible {
     outline: 3px solid rgba(43, 122, 223, 0.35);
@@ -51,5 +60,14 @@ export const StyledButton = styled.button<StyledButtonProps>`
     opacity: 0.6;
     cursor: not-allowed;
     transform: none;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+
+    &:hover,
+    &:active {
+      transform: none;
+    }
   }
 `

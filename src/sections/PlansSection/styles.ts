@@ -67,6 +67,13 @@ export const ImageCard = styled.div`
   position: relative;
   background: var(--color-background-alt);
 
+  img {
+    opacity: 0;
+    transform: scale(1.01);
+    transition: opacity 0.25s ease, transform 0.6s ease;
+    will-change: opacity, transform;
+  }
+
   &::before {
     content: '';
     position: absolute;
@@ -89,7 +96,23 @@ export const ImageCard = styled.div`
     animation: none;
   }
 
+  &[data-loaded='true'] img {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  @media (hover: hover) and (pointer: fine) {
+    &[data-loaded='true']:hover img {
+      transform: scale(1.03);
+    }
+  }
+
   @media (prefers-reduced-motion: reduce) {
+    img {
+      transform: none;
+      transition: opacity 0.25s ease;
+    }
+
     &::before {
       animation: none;
     }
@@ -153,9 +176,27 @@ export const ItemRow = styled.li<{ $bg: string; $grow: number; $index: number }>
   position: relative;
   border-radius: var(--radius-md);
   box-shadow: 0 8px 18px rgba(27, 31, 35, 0.07);
+  transition: transform 0.18s ease, box-shadow 0.18s ease, filter 0.18s ease;
+  will-change: transform;
 
   &:not(:first-child) {
     margin-top: -10px;
+  }
+
+  @media (hover: hover) and (pointer: fine) {
+    &:hover {
+      z-index: 50;
+      transform: translateY(-4px);
+      box-shadow: 0 16px 30px rgba(27, 31, 35, 0.12);
+    }
+
+    &:active {
+      transform: translateY(-2px);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    transition: none;
   }
 
   @media (min-width: 960px) {
