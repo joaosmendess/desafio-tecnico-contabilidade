@@ -4,6 +4,7 @@ export const GlobalStyle = createGlobalStyle`
   :root {
     --color-bg: ${({ theme }) => theme.colors.background};
     --color-surface: ${({ theme }) => theme.colors.surface};
+    --color-background-alt: ${({ theme }) => theme.colors.backgroundAlt};
     --color-text: ${({ theme }) => theme.colors.text};
     --color-text-muted: ${({ theme }) => theme.colors.textMuted};
     --color-primary: ${({ theme }) => theme.colors.primary};
@@ -23,6 +24,7 @@ export const GlobalStyle = createGlobalStyle`
     --space-lg: ${({ theme }) => theme.spacing.lg};
     --space-xl: ${({ theme }) => theme.spacing.xl};
     --space-2xl: ${({ theme }) => theme.spacing.xxl};
+    --space-3xl: ${({ theme }) => theme.spacing.xxxl};
 
     --font-family: ${({ theme }) => theme.font.family};
     --font-family-alt: ${({ theme }) => theme.font.familyAlt};
@@ -36,6 +38,12 @@ export const GlobalStyle = createGlobalStyle`
     --font-weight-medium: ${({ theme }) => theme.font.weight.medium};
     --font-weight-semibold: ${({ theme }) => theme.font.weight.semibold};
     --font-weight-bold: ${({ theme }) => theme.font.weight.bold};
+
+    --color-gray-100: #E0E1E2;
+    --color-gray-200: #C6C8CB;
+    --color-divider: #E0E1E2;
+    --color-green-100: #D4FFD1;
+    --color-green-500: #83E87C;
   }
 
   *,
