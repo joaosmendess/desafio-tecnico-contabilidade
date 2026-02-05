@@ -1,5 +1,25 @@
-import styled from 'styled-components'
+import styled, { keyframes } from 'styled-components'
 import { Section } from '../components/Section'
+
+const overlayIn = keyframes`
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+`
+
+const modalIn = keyframes`
+  from {
+    opacity: 0;
+    transform: translateY(12px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+`
 
 export const HeroWrapper = styled(Section)`
   position: relative;
@@ -113,6 +133,12 @@ export const MediaCard = styled.div`
   width: min(560px, 100%);
   justify-self: end;
 
+  @media (hover: hover) and (pointer: fine) {
+    &:hover img {
+      transform: scale(1.02);
+    }
+  }
+
   @media (max-width: 959px) {
     width: 100%;
     justify-self: center;
@@ -132,10 +158,18 @@ export const MediaFrame = styled.div`
     width: 100%;
     height: 100%;
     object-fit: cover;
+    transform: scale(1);
+    transition: transform 240ms ease;
+    will-change: transform;
+
+    @media (prefers-reduced-motion: reduce) {
+      transition: none;
+      will-change: auto;
+    }
   }
 `
 
-export const PlayButton = styled.button`
+export const PlayButton = styled.button.attrs({ type: 'button' })`
   position: absolute;
   left: 50%;
   top: 50%;
@@ -149,6 +183,23 @@ export const PlayButton = styled.button`
   place-items: center;
   cursor: pointer;
   box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+  transition: transform 180ms ease, box-shadow 180ms ease;
+  touch-action: manipulation;
+
+  @media (hover: hover) and (pointer: fine) {
+    &:hover {
+      transform: translate(-50%, -50%) scale(1.06);
+      box-shadow: 0 14px 34px rgba(0, 0, 0, 0.18);
+    }
+  }
+
+  &:active {
+    transform: translate(-50%, -50%) scale(0.98);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    transition: none;
+  }
 
   &:focus-visible {
     outline: 3px solid rgba(47, 111, 237, 0.35);
@@ -173,6 +224,11 @@ export const ModalOverlay = styled.div`
   place-items: center;
   padding: ${({ theme }) => theme.spacing.lg};
   z-index: 50;
+  animation: ${overlayIn} 180ms ease-out;
+
+  @media (prefers-reduced-motion: reduce) {
+    animation: none;
+  }
 `
 
 export const ModalContent = styled.div`
@@ -194,9 +250,14 @@ export const ModalContent = styled.div`
 export const ModalShell = styled.div`
   position: relative;
   width: min(550px, 100%);
+  animation: ${modalIn} 220ms ease-out;
+
+  @media (prefers-reduced-motion: reduce) {
+    animation: none;
+  }
 `
 
-export const CloseButton = styled.button`
+export const CloseButton = styled.button.attrs({ type: 'button' })`
   position: absolute;
   top: -28px;
   right: -28px;
@@ -211,6 +272,24 @@ export const CloseButton = styled.button`
   display: grid;
   place-items: center;
   z-index: 2;
+  transition: transform 180ms ease, background 180ms ease, box-shadow 180ms ease;
+  touch-action: manipulation;
+
+  @media (hover: hover) and (pointer: fine) {
+    &:hover {
+      transform: scale(1.04);
+      background: rgba(255, 255, 255, 1);
+      box-shadow: 0 14px 34px rgba(0, 0, 0, 0.2);
+    }
+  }
+
+  &:active {
+    transform: scale(0.98);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    transition: none;
+  }
 
   &:focus-visible {
     outline: 3px solid rgba(47, 111, 237, 0.35);
