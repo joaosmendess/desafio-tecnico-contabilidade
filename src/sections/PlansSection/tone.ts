@@ -11,4 +11,3 @@ const toneBg: Record<PlanItem['tone'], string> = {
 export function bgFor(tone: PlanItem['tone']) {
   return toneBg[tone]
 }
-

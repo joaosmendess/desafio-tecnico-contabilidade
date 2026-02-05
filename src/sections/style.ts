@@ -55,7 +55,7 @@ export const HeroGrid = styled.div`
     grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
     gap: 56px;
   }
-  
+
   @media (max-width: 959px) {
     text-align: center;
   }
@@ -183,7 +183,9 @@ export const PlayButton = styled.button.attrs({ type: 'button' })`
   place-items: center;
   cursor: pointer;
   box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
-  transition: transform 180ms ease, box-shadow 180ms ease;
+  transition:
+    transform 180ms ease,
+    box-shadow 180ms ease;
   touch-action: manipulation;
 
   @media (hover: hover) and (pointer: fine) {
@@ -272,7 +274,10 @@ export const CloseButton = styled.button.attrs({ type: 'button' })`
   display: grid;
   place-items: center;
   z-index: 2;
-  transition: transform 180ms ease, background 180ms ease, box-shadow 180ms ease;
+  transition:
+    transform 180ms ease,
+    background 180ms ease,
+    box-shadow 180ms ease;
   touch-action: manipulation;
 
   @media (hover: hover) and (pointer: fine) {

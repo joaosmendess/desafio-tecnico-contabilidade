@@ -18,7 +18,10 @@ export const StyledButton = styled.button<StyledButtonProps>`
   font-size: var(--font-size-sm);
   cursor: pointer;
   touch-action: manipulation;
-  transition: transform 0.2s ease, background 0.2s ease, color 0.2s ease,
+  transition:
+    transform 0.2s ease,
+    background 0.2s ease,
+    color 0.2s ease,
     border-color 0.2s ease;
 
   ${({ $variant }: StyledButtonProps) =>
@@ -63,7 +66,10 @@ export const StyledButton = styled.button<StyledButtonProps>`
   }
 
   @media (prefers-reduced-motion: reduce) {
-    transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+    transition:
+      background 0.2s ease,
+      color 0.2s ease,
+      border-color 0.2s ease;
 
     &:hover,
     &:active {
